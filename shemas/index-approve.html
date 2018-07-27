@@ -83,7 +83,9 @@
                         <a class="nav-link" href="#">Черновики</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="index-approve.html">На утверждение</a>
+                        <a class="nav-link active" href="index-approve.html">На утверждение
+                            <span class="badge badge-info">4</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -92,6 +94,7 @@
                 <div class="alert alert-warning" role="alert" id="warning">
                     Планограмма возвращена автору
                 </div>
+
                 <div class="alert alert-success" role="alert" id="success">
                     Планограмма одобрена
                 </div>
@@ -99,9 +102,10 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <a href="#" class="btn btn-success">Одобрить выбранные</a>
-                        <a href="#" class="btn btn-danger">Удалить выбранные</a>
-                        <a href="index-search.html" class="btn btn-primary" style="float: right;">Поиск</a>
+                        <a href="#" class="btn btn-outline-success btn-sm">Одобрить выбранные</a>
+                        <a href="index-search.html" class="btn btn-primary btn-sm" style="float: right;">
+                            <i class="fas fa-search"></i> Поиск
+                        </a>
                     </div>
                 </div>
 
@@ -198,21 +202,37 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <a href="#" class="btn btn-success">Одобрить выбранные</a>
-                        <a href="#" class="btn btn-danger">Удалить выбранные</a>
-                        <a href="index-search.html" class="btn btn-primary" style="float: right;">Поиск</a>
+                        <a href="#" class="btn btn-outline-success btn-sm">Одобрить выбранные</a>
+                        <a href="index-search.html" class="btn btn-primary btn-sm" style="float: right;">
+                            <i class="fas fa-search"></i> Поиск
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-        crossorigin="anonymous"></script>
+
+    <script>
+        $(".btn-outline-danger").click(function () {
+            var reason = prompt("Укажите причину возврата", "Всё плохо");
+            if (reason != null) {
+                $(".alert").hide();
+                $("#warning").fadeIn()
+            }
+        });
+
+        $(".btn-outline-success").click(function () {
+            $(".alert").hide();
+            $("#success").fadeIn()
+        });
+    </script>
+
 </body>
 
 </html>
