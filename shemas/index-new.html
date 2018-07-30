@@ -20,6 +20,58 @@
         fieldset {
             padding-bottom: 1.25rem;
         }
+
+        .ui-autocomplete {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            display: none;
+            float: left;
+            min-width: 160px;
+            padding: 5px 0;
+            margin: 2px 0 0;
+            list-style: none;
+            font-size: 14px;
+            text-align: left;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+            background-clip: padding-box;
+        }
+
+        .ui-autocomplete>li>div {
+            display: block;
+            padding: 3px 20px;
+            clear: both;
+            font-weight: normal;
+            line-height: 1.42857143;
+            color: #333333;
+            white-space: nowrap;
+        }
+
+        .ui-state-hover,
+        .ui-state-active,
+        .ui-state-focus {
+            text-decoration: none;
+            color: #262626;
+            background-color: #f5f5f5;
+            cursor: pointer;
+        }
+
+        .ui-helper-hidden-accessible {
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
     </style>
 </head>
 
@@ -113,54 +165,65 @@
                             <fieldset>
                                 <div class="form-group">
                                     <label for="boxSelect">Тип торгового оборудования</label>
-                                    <select class="form-control" id="boxSelect" style="margin-bottom:.5rem;">
+                                    <!-- <select class="form-control" id="boxSelect" style="margin-bottom:.5rem;">
                                         <option></option>
                                         <option>Шкаф А</option>
                                         <option>Шкаф B</option>
                                         <option>Шкаф C</option>
-                                    </select>
+                                    </select> -->
+                                    <input type="text" class="form-control" id="tags" />
                                     <small class="form-text text-muted">Только активные шкафы</small>
                                 </div>
                             </fieldset>
 
                             <fieldset class="js-hidden" disabled>
                                 <div class="form-group">
-                                    <label for="testInput">Всего слотов</label>
-                                    <input type="text" class="form-control" id="testInput" value="100">
+                                    <label for="testInput">Количество слотов в ряду</label>
+                                    <input type="text" class="form-control" id="testInput" value="10">
                                 </div>
-
                                 <div class="form-group">
-                                    <label for="testInput">NSS</label>
-                                    <input type="text" class="form-control" id="testInput" value="-8">
+                                    <label for="testInput">Оптимальный портфель</label>
+                                    <input type="text" class="form-control" id="testInput" value="58">
+                                </div>
+                                <div class="form-group">
+                                    <label for="testInput8">NSS "Скворечник"</label>
+                                    <input type="text" class="form-control" id="testInput8" value="-8">
                                 </div>
                             </fieldset>
 
                             <fieldset class="js-hidden">
                                 <div class="form-group">
-                                    <label for="testInput2">Кол-во SKU</label>
-                                    <input type="text" class="form-control" id="testInput2">
+                                    <label for="testInput2">Количество рядов (JTI)</label>
+                                    <input type="text" class="form-control" id="testInput2" value="9">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="testInput3">Поверх NSS</label>
-                                    <input type="text" class="form-control" id="testInput3">
+                                    <label for="testInput3">Количество SKU в NSS</label>
+                                    <input type="text" class="form-control" id="testInput3" value="2">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="testInput4">Поддержка NSS</label>
+                                    <input type="text" class="form-control" id="testInput4" value="4">
+                                    <small class="text-muted">Количество слотов поддерживаемыми в NSS SKU</small>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="testInput4">Резерв</label>
-                                    <input type="text" class="form-control" id="testInput4">
+                                    <input type="text" class="form-control" id="testInput4" value="4">
+                                    <small class="text-muted">Количество слотов под резервацию новых запусков</small>
                                 </div>
 
                                 <div class="form-group row" style="padding-top:1rem;">
                                     <label class="col-sm-2 col-form-label">Итого:</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext text-muted" value="???">
+                                        <input type="text" readonly class="form-control-plaintext text-muted" value="20">
                                     </div>
                                 </div>
 
-                                <div class="alert alert-warning" role="alert" id="warning">
+                                <!-- <div class="alert alert-warning" role="alert" id="warning">
                                     Заполните всю форму для расчёта слотов
-                                </div>
+                                </div> -->
                             </fieldset>
 
                             <a href="index-new-2.html" class="btn btn-primary">Cформировать планограмму</a>
@@ -171,20 +234,20 @@
 
                         <fieldset class="js-hidden" style="width: 80%;">
                             <div class="form-group">
-                                <label for="brandInput1">Brand1</label>
-                                <input type="text" class="form-control" id="brandInput1">
+                                <label for="brandInput1">Winston</label>
+                                <input type="text" class="form-control" id="brandInput1" value="9" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="brandInput2">Brand2</label>
-                                <input type="text" class="form-control" id="brandInput2">
+                                <label for="brandInput2">LD</label>
+                                <input type="text" class="form-control" id="brandInput2" value="5" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="brandInput3">Brand3</label>
-                                <input type="text" class="form-control" id="brandInput3">
+                                <label for="brandInput3">Peter I</label>
+                                <input type="text" class="form-control" id="brandInput3" value="3" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="PremiumInput1">Premium</label>
-                                <input type="text" class="form-control" id="PremiumInput1">
+                                <label for="PremiumInput1">Glamour</label>
+                                <input type="text" class="form-control" id="PremiumInput1" value="3" disabled>
                             </div>
                         </fieldset>
                     </div>
@@ -194,14 +257,29 @@
 
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
     <script>
-        $("#boxSelect").change(function () { $(".js-hidden").show(); });
+        $("#tags").change(function () { $(".js-hidden").show(); });
+
+        $(function () {
+            var availableTags = [
+                "Шкаф A",
+                "Шкаф B",
+                "Шкаф C",
+            ];
+
+            $("#tags").autocomplete({
+                source: availableTags,
+                select: function (e, ui) {
+                    $(".js-hidden").show();
+                }
+            });
+        });
     </script>
 
 </body>
