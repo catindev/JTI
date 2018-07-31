@@ -66,31 +66,35 @@
             <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Мои планограммы</a>
+                        <a class="nav-link" href="index-approve.html">На утверждение
+                            <span class="badge badge-danger">4</span>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index-new.html">Новая планограмма</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Черновики
-                            <span class="badge badge-info">2</span>
-                        </a>
+                        <a class="nav-link" href="index.html">Все планограммы</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index-approve.html">На утверждение
-                            <span class="badge badge-danger">48</span>
+                        <a class="nav-link active" href="index-search.html">Поиск</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Черновики
+                            <span class="badge badge-info">1</span>
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="card-body">
                 <form style="max-width: 70%;margin: 0 auto;padding: 1rem 0 2rem;">
-                    <h3>Поиск</h3>
+                    <h3>Поиск планограмм</h3>
                     <fieldset>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Регион</label>
                             <select class="form-control" id="exampleFormControlSelect1">
+                                <option></option>
                                 <option>Север</option>
                                 <option>Юг</option>
                                 <option>Запад</option>
@@ -101,6 +105,7 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Портфельная территория</label>
                             <select class="form-control" id="exampleFormControlSelect2">
+                                <option></option>
                                 <option>территория север 1</option>
                                 <option>территория север 2</option>
                                 <option>территория север 3</option>
@@ -112,6 +117,7 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Тип оборудования</label>
                             <select class="form-control" id="exampleFormControlSelect2" style="margin-bottom:.5rem;">
+                                <option></option>
                                 <option>Шкаф А</option>
                                 <option>Шкаф B</option>
                                 <option>Шкаф C</option>
@@ -123,6 +129,7 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Автор</label>
                             <select class="form-control" id="exampleFormControlSelect2" style="margin-bottom:.5rem;">
+                                <option></option>
                                 <option>Donna R. Folse</option>
                                 <option>Ramona Green</option>
                                 <option>Toni Ross</option>
@@ -135,11 +142,11 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Начало действия</label>
-                                <input type="email" class="form-control" id="inputEmail4" placeholder="месяц">
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="месяц">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputPassword4" style="visibility: hidden;">год</label>
-                                <input type="password" class="form-control" id="inputPassword4" placeholder="год">
+                                <input type="text" class="form-control" id="inputPassword4" placeholder="год">
                             </div>
                         </div>
                         <div class="form-row">
@@ -158,6 +165,7 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Статус согласования</label>
                             <select class="form-control" id="exampleFormControlSelect2" style="margin-bottom:.5rem;">
+                                <option></option>
                                 <option>Не важен</option>
                                 <option>Черновик</option>
                                 <option>Согласована</option>

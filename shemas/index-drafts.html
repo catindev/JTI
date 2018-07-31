@@ -30,6 +30,10 @@
         .table-hover tbody tr:hover {
             cursor: pointer;
         }
+
+        .alert {
+            display: none;
+        }
     </style>
 </head>
 
@@ -70,25 +74,37 @@
             <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Все планограммы</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index-new.html">Новая планограмма</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index-drafts.html">
-                            Черновики
-                            <span class="badge badge-info">2</span>
+                        <a class="nav-link" href="index-approve.html">
+                            На утверждение
+                            <span class="badge badge-danger">4</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index-approve.html">На утверждение
-                            <span class="badge badge-danger">48</span>
+                        <a class="nav-link" href="index-new.html">
+                            Новая планограмма
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Все планограммы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Поиск</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            Черновики
+                            <span class="badge badge-info">2</span>
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="card-body">
+
+                <div class="alert alert-success" role="alert" id="success">
+                    <i class="fas fa-copy"></i>
+                    Планограмма скопирована в черновики
+                </div>
+
                 <div class="card">
                     <div class="card-body">
                         <a href="#" class="btn btn-outline-secondary btn-sm">
@@ -104,7 +120,8 @@
                             Удалить выбранные
                         </a>
                         <a href="index-search.html" class="btn btn-primary btn-sm" style="float: right;">
-                            <i class="fas fa-search"></i> Поиск
+                            <i class="fas fa-search"></i>
+                            Поиск
                         </a>
                     </div>
                 </div>
@@ -123,10 +140,8 @@
                             <td>
                                 <input type="checkbox" />
                             </td>
-                            <td>2018/04/31</td>
-                            <td>
-                                JTI100BackwallNSS4-5__Мос.обл
-                            </td>
+                            <td>2018/07/21</td>
+                            <td>JTI100Backwall__Мос.обл.</td>
                             <td style="text-align: right;">
                                 <button class="btn btn-sm btn-outline-secondary">
                                     <i class="fas fa-pen-square"></i>
@@ -194,19 +209,15 @@
     </main>
 
 
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
         crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
     <script>
-        $('.table-hover tbody tr').click(function () {
-            location.href = 'index-card.html'
-        })
+        setTimeout(function () {
+            $("#success").fadeIn()
+        }, 500);
     </script>
 </body>
 
